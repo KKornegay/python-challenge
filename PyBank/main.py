@@ -39,22 +39,22 @@ print(f"Average Change: {round(average_change,2)}")
 print(f"Greatest Increase in Profits: {months[change.index(max(change))+1]} (${(str(greatest_increase))})")
 print(f"Greatest Decrease in Profits: {months[change.index(min(change))+1]} (${(str(greatest_decrease))})")
 
-# Output files
-# output_file = Path("PyBank", "Analysis", "Financial_Analysis_Summary.txt")
+# Choose location of and open output file
+output_file = os.path.join("Analysis", "Financial_Analysis_Summary.txt")
 
-# with open(output_file,"w") as file:
+with open(output_file,"w") as file:
     
-# # Write methods to print to Financial_Analysis_Summary 
-#     file.write("Financial Analysis")
-#     file.write("\n")
-#     file.write("----------------------------")
-#     file.write("\n")
-#     file.write(f"Total Months: {total_months}")
-#     file.write("\n")
-#     file.write(f"Total: ${net_total}")
-#     file.write("\n")
-#     file.write(f"Average Change: {round(sum(monthly_profit_change)/len(monthly_profit_change),2)}")
-#     file.write("\n")
-#     file.write(f"Greatest Increase in Profits: {total_months[max_increase_month]} (${(str(max_increase_value))})")
-#     file.write("\n")
-#     file.write(f"Greatest Decrease in Profits: {total_months[max_decrease_month]} (${(str(max_decrease_value))})")
+# Write to output file 
+    file.write("Financial Analysis")
+    file.write("\n")
+    file.write("----------------------------")
+    file.write("\n")
+    file.write(f"Total Months: {total_months}")
+    file.write("\n")
+    file.write(f"Total: ${net_total}")
+    file.write("\n")
+    file.write(f"Average Change: {round(average_change,2)}")
+    file.write("\n")
+    file.write(f"Greatest Increase in Profits: {months[change.index(max(change))+1]} (${(str(greatest_increase))})")
+    file.write("\n")
+    file.write(f"Greatest Decrease in Profits: {months[change.index(min(change))+1]} (${(str(greatest_decrease))})")
