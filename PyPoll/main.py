@@ -9,8 +9,8 @@ electioncsvpath = os.path.join("Resources", "Election_data.csv")
 #declare variables
 candidates = {}
 total_votes = 0
-max_votes = 0
-winner = ""
+# max_votes = 0
+# winner = ""
 
 #open csv and skip header
 with open(electioncsvpath) as csvfile:
@@ -31,23 +31,56 @@ with open(electioncsvpath) as csvfile:
 # max_votes = 0
 # winner = ""
 def candidate_votes(Election_data):
+    output_file = os.path.join("Analysis", "Election_Results.txt")
     max_votes = 0
     winner = ""
-    for name,votes in candidates.items():
-        print(f"{name}: {100*votes/total_votes:.3f}% ({votes})")
-        if votes > max_votes:
-            winner = name
-            max_votes = votes
+    with open(output_file,"w") as file:
+        file.write("Election Results")
+        file.write("\n")
+        file.write("----------------------------")
+        file.write("\n")
+        file.write(f"Total Votes: {total_votes}")
+        file.write("\n")
+        file.write("-----------------------------")
+        file.write("\n")
+        for name,votes in candidates.items():
+            file.write(f"{name}: {100*votes/total_votes:.3f}% ({votes})")
+            file.write("\n")
+            print(f"{name}: {100*votes/total_votes:.3f}% ({votes})")
+            if votes > max_votes:
+                winner = name
+                max_votes = votes
+        file.write("-----------------------------")
+        file.write("\n")
+        file.write(f"Winner: {winner}")
+        file.write("\n")
+        file.write("-----------------------------")
+        print("-----------------------------")
+        print(f"Winner: {winner}")
+        print("-----------------------------")
 
 print("Election Results")  
 print("-----------------------------")        
 print(f"Total Votes: {total_votes}")
 print("-----------------------------")
 candidate_votes(row)
-print("-----------------------------")
-print(f"Winner: {winner}")
-print("-----------------------------")
+# print("-----------------------------")
+# print(f"Winner: {winner}")
+# print("-----------------------------")
 
+#choose location of and open output file
+# output_file = os.path.join("Analysis", "Election_Results.txt")
 
-
-
+# with open(output_file,"w") as file:
+    
+#write to output file 
+    # file.write("Election Results")
+    # file.write("\n")
+    # file.write("----------------------------")
+    # file.write("\n")
+    # file.write(f"Total Votes: {total_votes}")
+    # file.write("\n")
+    # file.write("-----------------------------")
+    # file.write("\n")
+    # file.write((candidate_votes(row)))
+    
