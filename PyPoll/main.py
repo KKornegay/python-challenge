@@ -24,23 +24,24 @@ with open(electioncsvpath) as csvfile:
            candidates[row[2]] = 1
        else:
            candidates[row[2]] = candidates [row[2]] + 1
-print("Election Results")  
-print("-----------------------------")        
-print(f"Total Votes: {total_votes}")
-print("-----------------------------")
+# print("Election Results")  
+# print("-----------------------------")        
+# print(f"Total Votes: {total_votes}")
+# print("-----------------------------")
 # max_votes = 0
 # winner = ""
 for name,votes in candidates.items():
-    print(f"{name}: {100*votes/total_votes:.1f}%: {votes}:")
+    # print(f"{name}: {100*votes/total_votes:.3f}% ({votes})")
     if votes> max_votes:
         winner = name
         max_votes = votes
 
-# print("Election Results")  
-# print("-----------------------------")        
-# print(f"Total Votes: {total_votes}")
+print("Election Results")  
+print("-----------------------------")        
+print(f"Total Votes: {total_votes}")
 print("-----------------------------")
-# print(f"{name}: {100*votes/total_votes:.1f}%: {votes}:")
+print(f"{name}: {100*votes/total_votes:.3f}% ({votes})")
+print("-----------------------------")
 print(f"Winner: {winner}")
 print("-----------------------------")
 
