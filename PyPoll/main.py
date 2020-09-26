@@ -9,8 +9,6 @@ electioncsvpath = os.path.join("Resources", "Election_data.csv")
 #declare variables
 candidates = {}
 total_votes = 0
-# max_votes = 0
-# winner = ""
 
 #open csv and skip header
 with open(electioncsvpath) as csvfile:
@@ -24,12 +22,8 @@ with open(electioncsvpath) as csvfile:
            candidates[row[2]] = 1
        else:
            candidates[row[2]] = candidates [row[2]] + 1
-# print("Election Results")  
-# print("-----------------------------")        
-# print(f"Total Votes: {total_votes}")
-# print("-----------------------------")
-# max_votes = 0
-# winner = ""
+
+#create function to total candidate votes, declare winner, print results, and write to file
 def candidate_votes(Election_data):
     output_file = os.path.join("Analysis", "Election_Results.txt")
     max_votes = 0
@@ -43,6 +37,10 @@ def candidate_votes(Election_data):
         file.write("\n")
         file.write("-----------------------------")
         file.write("\n")
+        print("Election Results")  
+        print("-----------------------------")        
+        print(f"Total Votes: {total_votes}")
+        print("-----------------------------")
         for name,votes in candidates.items():
             file.write(f"{name}: {100*votes/total_votes:.3f}% ({votes})")
             file.write("\n")
@@ -59,28 +57,5 @@ def candidate_votes(Election_data):
         print(f"Winner: {winner}")
         print("-----------------------------")
 
-print("Election Results")  
-print("-----------------------------")        
-print(f"Total Votes: {total_votes}")
-print("-----------------------------")
+#run function
 candidate_votes(row)
-# print("-----------------------------")
-# print(f"Winner: {winner}")
-# print("-----------------------------")
-
-#choose location of and open output file
-# output_file = os.path.join("Analysis", "Election_Results.txt")
-
-# with open(output_file,"w") as file:
-    
-#write to output file 
-    # file.write("Election Results")
-    # file.write("\n")
-    # file.write("----------------------------")
-    # file.write("\n")
-    # file.write(f"Total Votes: {total_votes}")
-    # file.write("\n")
-    # file.write("-----------------------------")
-    # file.write("\n")
-    # file.write((candidate_votes(row)))
-    
