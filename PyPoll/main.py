@@ -30,17 +30,20 @@ with open(electioncsvpath) as csvfile:
 # print("-----------------------------")
 # max_votes = 0
 # winner = ""
-for name,votes in candidates.items():
-    # print(f"{name}: {100*votes/total_votes:.3f}% ({votes})")
-    if votes> max_votes:
-        winner = name
-        max_votes = votes
+def candidate_votes(Election_data):
+    max_votes = 0
+    winner = ""
+    for name,votes in candidates.items():
+        print(f"{name}: {100*votes/total_votes:.3f}% ({votes})")
+        if votes > max_votes:
+            winner = name
+            max_votes = votes
 
 print("Election Results")  
 print("-----------------------------")        
 print(f"Total Votes: {total_votes}")
 print("-----------------------------")
-print(f"{name}: {100*votes/total_votes:.3f}% ({votes})")
+candidate_votes(row)
 print("-----------------------------")
 print(f"Winner: {winner}")
 print("-----------------------------")
